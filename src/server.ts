@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./config/db.ts";
 import authRoutes from "./routes/auth.routes.ts";
+import { errorMiddleware } from "./middleware/error.middleware.ts";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.get("/", (_req, res) => {
     message: "Server is running",
   });
 });
+
+app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 4000;
 
