@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express";
 
 import {
-  loginUser,
-  registerUser,
+  loginUserService,
+  registerUserService,
 } from "../services/auth.service.ts";
 
 export const register = async (
@@ -11,7 +11,7 @@ export const register = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const user = await registerUser(req.body);
+    const user = await registerUserService(req.body);
 
     res.status(201).json({
       success: true,
@@ -29,7 +29,7 @@ export const login = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const result = await loginUser(req.body);
+    const result = await loginUserService(req.body);
 
     res.status(200).json({
       success: true,

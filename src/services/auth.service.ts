@@ -23,7 +23,7 @@ interface LoginResponse {
   };
 }
 
-export const registerUser = async (
+export const registerUserService = async (
   data: RegisterInput,
 ): Promise<RegisterResponse> => {
   const { name, email, password } = data;
@@ -52,7 +52,7 @@ export const registerUser = async (
   };
 };
 
-export const loginUser = async (
+export const loginUserService = async (
   data: LoginInput,
 ): Promise<LoginResponse> => {
   const { email, password } = data;
