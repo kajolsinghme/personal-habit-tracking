@@ -1,12 +1,14 @@
 import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./config/db.ts";
+import authRoutes from "./routes/auth.routes.ts";
 
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
+app.use("/", authRoutes);
 
 app.get("/", (_req, res) => {
   res.status(200).json({
