@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { createHabitService } from "../services/habit.service.ts";
+import { createHabitService, getAllHabitsService } from "../services/habit.service.ts";
 
 export const createHabit = async (
   req: Request,
@@ -8,7 +8,7 @@ export const createHabit = async (
 ): Promise<void> => {
   try {
     const habit = await createHabitService(
-      req.userId,
+      req.userId!,
       req.body,
     );
 
@@ -21,3 +21,18 @@ export const createHabit = async (
     next(error);
   }
 };
+
+export const getAllHabits = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try{
+        const habits = await getAllHabitsService(req.userId!)
+
+        res.status(200).json({
+            success: true,
+            message: "Habits retrieved successfully",
+            habits
+        })
+    }
+    catch(error){
+        next(error)
+    }
+}

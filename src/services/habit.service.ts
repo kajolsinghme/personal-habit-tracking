@@ -14,3 +14,9 @@ export const createHabitService = async (
 
   return habit;
 };
+
+export const getAllHabitsService = async (userId: string) => {
+  const habits = await Habit.find({ user: userId }).sort({ createdAt: -1 });
+
+  return habits;
+};
