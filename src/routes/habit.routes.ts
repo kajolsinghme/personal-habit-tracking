@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createHabit, getAllHabits } from "../controllers/habit.controller.ts";
+import { createHabit, getAllHabits, getHabitById } from "../controllers/habit.controller.ts";
 import { authMiddleware } from "../middleware/auth.middleware.ts";
 import { validate } from "../middleware/validate.middleware.ts";
 import { createHabitSchema } from "../validators/habit.validator.ts";
@@ -17,6 +17,12 @@ router.get(
   "/habits",
   authMiddleware,
   getAllHabits,
+);
+
+router.get(
+  "/habits/:id",
+  authMiddleware,
+  getHabitById,
 );
 
 export default router;
