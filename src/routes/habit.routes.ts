@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { createHabit, getAllHabits, getHabitById, updateHabit } from "../controllers/habit.controller.ts";
+import { createHabit, deleteHabit, getAllHabits, getHabitById, updateHabit } from "../controllers/habit.controller.ts";
 import { authMiddleware } from "../middleware/auth.middleware.ts";
 import { validate } from "../middleware/validate.middleware.ts";
 import { createHabitSchema, updateHabitSchema } from "../validators/habit.validator.ts";
+import { trackHabit } from "../controllers/tracking.controller.ts";
 
 const router = Router();
 
@@ -30,6 +31,18 @@ router.put(
   authMiddleware,
   validate(updateHabitSchema),
   updateHabit,
+);
+
+router.delete(
+  "/habits/:id",
+  authMiddleware,
+  deleteHabit,
+);
+
+router.post(
+  "/habits/:id/track",
+  authMiddleware,
+  trackHabit,
 );
 
 export default router;

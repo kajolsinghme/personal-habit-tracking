@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import {
   createHabitService,
+  deleteHabitService,
   getAllHabitsService,
   getHabitByIdService,
   updateHabitService,
@@ -71,13 +72,33 @@ export const updateHabit = async (
     const habit = await updateHabitService(
       req.params.id as string,
       req.userId!,
-      req.body
+      req.body,
     );
 
     res.status(200).json({
       success: true,
       message: "Habit updated successfully",
       habit,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteHabit = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    const habit = await deleteHabitService(
+      req.params.id as string,
+      req.userId!,
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Habit deleted successfully",
     });
   } catch (error) {
     next(error);

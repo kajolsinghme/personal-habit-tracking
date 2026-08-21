@@ -61,3 +61,21 @@ export const updateHabitService = async (
 
   return habit;
 };
+
+export const deleteHabitService = async (
+  habitId: string,
+  userId: string
+) => {
+  const habit = await Habit.findOneAndDelete(
+    {
+      _id: habitId,
+      user: userId,
+    }
+  );
+
+  if (!habit) {
+    throw new AppError("Habit not found", 404);
+  }
+
+  return habit;
+};
