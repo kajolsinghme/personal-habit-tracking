@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createHabit, deleteHabit, getAllHabits, getHabitById, updateHabit } from "../controllers/habit.controller.ts";
-import { authMiddleware } from "../middleware/auth.middleware.ts";
-import { validate } from "../middleware/validate.middleware.ts";
-import { createHabitSchema, updateHabitSchema } from "../validators/habit.validator.ts";
-import { getHabitHistory, trackHabit } from "../controllers/tracking.controller.ts";
+import { createHabit, deleteHabit, getAllHabits, getHabitById, updateHabit } from "../controllers/habit.controller";
+import { authMiddleware } from "../middleware/auth.middleware";
+import { validate } from "../middleware/validate.middleware";
+import { createHabitSchema, updateHabitSchema } from "../validators/habit.validator";
+import { getHabitHistory, trackHabit } from "../controllers/tracking.controller";
 
 const router = Router();
 

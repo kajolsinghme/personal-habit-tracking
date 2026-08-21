@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { getHabitHistoryService, trackHabitService } from "../services/tracking.service.ts";
+import { getHabitHistoryService, trackHabitService } from "../services/tracking.service";
 
 export const trackHabit = async (
   req: Request,

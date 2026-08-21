@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import User from "../models/user.model.ts";
-import { AppError } from "../utils/errors.ts";
+import User from "../models/user.model";
+import { AppError } from "../utils/errors";
 
 import type {
   LoginInput,

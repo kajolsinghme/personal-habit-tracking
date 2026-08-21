@@ -1,9 +1,9 @@
-import Habit from "../models/habit.model.ts";
-import { AppError } from "../utils/errors.ts";
+import Habit from "../models/habit.model";
+import { AppError } from "../utils/errors";
 import type {
   CreateHabitInput,
   UpdateHabitInput,
-} from "../validators/habit.validator.ts";
+} from "../validators/habit.validator";
 
 export const createHabitService = async (
   userId: string,

@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import express from "express";
-import connectDB from "./config/db.ts";
-import authRoutes from "./routes/auth.routes.ts";
-import habitRoutes from "./routes/habit.routes.ts";
-import { errorMiddleware } from "./middleware/error.middleware.ts";
+import connectDB from "./config/db";
+import authRoutes from "./routes/auth.routes";
+import habitRoutes from "./routes/habit.routes";
+import { errorMiddleware } from "./middleware/error.middleware";
 
 dotenv.config();
 

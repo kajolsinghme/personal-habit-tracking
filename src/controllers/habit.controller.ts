@@ -5,7 +5,7 @@ import {
   getAllHabitsService,
   getHabitByIdService,
   updateHabitService,
-} from "../services/habit.service.ts";
+} from "../services/habit.service";
 
 export const createHabit = async (
   req: Request,

@@ -1,7 +1,7 @@
-import Habit from "../models/habit.model.ts";
-import TrackingLog from "../models/tracking-log.model.ts";
-import { getLast7Days, getToday } from "../utils/date.ts";
-import { AppError } from "../utils/errors.ts";
+import Habit from "../models/habit.model";
+import TrackingLog from "../models/tracking-log.model";
+import { getLast7Days, getToday } from "../utils/date";
+import { AppError } from "../utils/errors";
 
 export const trackHabitService = async (habitId: string, userId: string) => {
   const habit = await Habit.findOne({ _id: habitId, user: userId });

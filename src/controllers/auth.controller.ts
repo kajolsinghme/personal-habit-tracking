@@ -3,7 +3,7 @@ import type { Request, Response, NextFunction } from "express";
 import {
   loginUserService,
   registerUserService,
-} from "../services/auth.service.ts";
+} from "../services/auth.service";
 
 export const register = async (
   req: Request,
