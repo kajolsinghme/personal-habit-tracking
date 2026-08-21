@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { trackHabitService } from "../services/tracking.service.ts";
+import { getHabitHistoryService, trackHabitService } from "../services/tracking.service.ts";
 
 export const trackHabit = async (
   req: Request,
@@ -13,6 +13,24 @@ export const trackHabit = async (
       success: true,
       message: "Habit marked as completed",
       trackingLog,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getHabitHistory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    const history = await getHabitHistoryService(req.params.id as string, req.userId!);
+
+    res.status(200).json({
+      success: true,
+      message: "Habit history fetched successfully",
+      history,
     });
   } catch (error) {
     next(error);

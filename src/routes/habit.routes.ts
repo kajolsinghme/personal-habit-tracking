@@ -3,7 +3,7 @@ import { createHabit, deleteHabit, getAllHabits, getHabitById, updateHabit } fro
 import { authMiddleware } from "../middleware/auth.middleware.ts";
 import { validate } from "../middleware/validate.middleware.ts";
 import { createHabitSchema, updateHabitSchema } from "../validators/habit.validator.ts";
-import { trackHabit } from "../controllers/tracking.controller.ts";
+import { getHabitHistory, trackHabit } from "../controllers/tracking.controller.ts";
 
 const router = Router();
 
@@ -45,4 +45,9 @@ router.post(
   trackHabit,
 );
 
+router.get(
+  "/habits/:id/history",
+  authMiddleware,
+  getHabitHistory,
+);
 export default router;
