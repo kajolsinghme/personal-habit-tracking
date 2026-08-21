@@ -50,7 +50,7 @@ export const updateHabitService = async (
     },
     data,
     {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     },
   );
