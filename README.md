@@ -1,15 +1,14 @@
 ````md
-# Personal Habit Tracking API
+# Personal Habit Tracking
 
-A backend REST API for tracking personal habits.  
-The application supports user authentication, habit management, and daily habit tracking with history.
+A backend application for managing personal habits, tracking daily progress and maintaining habit completion history with secure user authentication.
 
 Built with:
 
 - Node.js
 - Express.js
 - TypeScript
-- MongoDB Atlas
+- MongoDB
 - Mongoose
 - JWT Authentication
 - Zod Validation
@@ -501,11 +500,38 @@ Response:
 ```json
 {
   "success": true,
+  "message": "Habit history fetched successfully",
   "history": [
     {
-      "completedAt": "2026-08-21"
+      "date": "2026-08-21",
+      "completed": true
+    },
+    {
+      "date": "2026-08-20",
+      "completed": false
+    },
+    {
+      "date": "2026-08-19",
+      "completed": false
+    },
+    {
+      "date": "2026-08-18",
+      "completed": false
+    },
+    {
+      "date": "2026-08-17",
+      "completed": false
+    },
+    {
+      "date": "2026-08-16",
+      "completed": false
+    },
+    {
+      "date": "2026-08-15",
+      "completed": false
     }
-  ]
+  ],
+  "streak": 1
 }
 ```
 
@@ -554,16 +580,5 @@ tests
 ├── auth.test.ts
 ├── habit.test.ts
 └── setup.ts
-```
-
----
-
-# Future Improvements
-
-* Refresh token authentication
-* Pagination
-* Habit streak calculation
-* Reminder notifications
-* API documentation using Swagger
 
 ```
