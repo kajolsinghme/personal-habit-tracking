@@ -25,16 +25,16 @@ Built with:
 - Password hashing using bcrypt
 
 ## Habit Management
-- Create habits
-- Get all habits
-- Get habit by ID
-- Update habit
-- Delete habit
+- Create new habits
+- Fetch all user habits
+- Fetch a habit by ID
+- Update existing habits
+- Delete habits
 
 ## Habit Tracking
 - Mark habit as completed for the day
-- Prevent duplicate completion on the same day
-- View habit completion history
+- Prevent duplicate completion entries for the same day
+- View habit completion history with streak tracking
 
 ---
 
