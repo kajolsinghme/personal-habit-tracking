@@ -13,7 +13,7 @@ export const createHabit = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const habit = await createHabitService(req.userId!, req.body);
+    const habit = await createHabitService(req.userId, req.body);
 
     res.status(201).json({
       success: true,
@@ -31,7 +31,7 @@ export const getAllHabits = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const habits = await getAllHabitsService(req.userId!);
+    const habits = await getAllHabitsService(req.userId);
 
     res.status(200).json({
       success: true,
@@ -51,7 +51,7 @@ export const getHabitById = async (
   try {
     const habit = await getHabitByIdService(
       req.params.id as string,
-      req.userId!,
+      req.userId,
     );
 
     res.status(200).json({
@@ -71,7 +71,7 @@ export const updateHabit = async (
   try {
     const habit = await updateHabitService(
       req.params.id as string,
-      req.userId!,
+      req.userId,
       req.body,
     );
 
@@ -93,7 +93,7 @@ export const deleteHabit = async (
   try {
     const habit = await deleteHabitService(
       req.params.id as string,
-      req.userId!,
+      req.userId,
     );
 
     res.status(200).json({

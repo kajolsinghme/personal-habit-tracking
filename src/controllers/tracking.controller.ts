@@ -7,7 +7,7 @@ export const trackHabit = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const trackingLog = await trackHabitService(req.params.id as string, req.userId!);
+    const trackingLog = await trackHabitService(req.params.id as string, req.userId);
 
     res.status(201).json({
       success: true,
@@ -25,12 +25,13 @@ export const getHabitHistory = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const history = await getHabitHistoryService(req.params.id as string, req.userId!);
+    const {history, streak} = await getHabitHistoryService(req.params.id as string, req.userId);
 
     res.status(200).json({
       success: true,
       message: "Habit history fetched successfully",
       history,
+      streak
     });
   } catch (error) {
     next(error);

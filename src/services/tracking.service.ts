@@ -47,8 +47,18 @@ export const getHabitHistoryService = async (
     date: { $in: dates },
   });
 
-  return dates.map((date) => ({
+  let streak = 0;
+
+  for (const date of dates) {
+    const completed = logs.some((log) => log.date === date);
+    if (!completed) break;
+    streak++;
+  }
+
+  const history = dates.map((date) => ({
     date,
     completed: logs.some((log) => log.date === date),
   }));
+
+  return { history, streak };
 };
